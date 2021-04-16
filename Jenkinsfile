@@ -16,5 +16,23 @@ pipeline {
                 sh 'mvn package'             
           }
         }
+
+       stage('Docker Build and Tag') {
+           steps {
+              
+                sh 'docker build -t helloworld:latest .' 
+                sh 'docker tag helloworld nishank/helloworld:latest'
+                //sh 'docker tag samplewebapp nikhilnidhi/samplewebapp:$BUILD_NUMBER'
+               
+          }
+        }
+       stage('Run Docker container on Jenkins Agent') {
+             
+            steps 
+			{
+                sh "docker run -d -p 80:8080 nishank/helloworld"
+ 
+            }
+        }
     }
 }
