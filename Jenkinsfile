@@ -15,6 +15,15 @@ pipeline {
         }
 
  stages {
+      stage('Initialize') {
+	   steps {
+		   script {
+			
+		      def pipeline = pipelineCfg("test.yaml")
+			   
+			   dockername = "${docker_name}"
+		   
+		      
       stage('checkout') {
            steps {
              
@@ -39,8 +48,8 @@ pipeline {
        stage('Docker Build and Tag') {
            steps {
               
-                sh 'docker build -t helloworld:latest .' 
-                sh 'docker tag helloworld nishank/helloworld:latest'
+		   sh "docker build -t ${dockername}:latest ." 
+		   sh "docker tag ${dockername} nishank/${dockername}:latest"
                 //sh 'docker tag samplewebapp nikhilnidhi/samplewebapp:$BUILD_NUMBER'
 		   echo "Version Test ${params.Version}"
                
