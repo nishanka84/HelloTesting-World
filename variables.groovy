@@ -3,4 +3,6 @@ def mavenbuild() {
 		  echo "print ${VERSION_NUMBER}"
 		  echo "print ${gitbranch}"
   
-}
+ }
+
+return this
