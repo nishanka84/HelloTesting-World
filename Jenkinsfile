@@ -1,6 +1,10 @@
 pipeline {
     agent any
- 
+	
+
+	parameters {
+		choice(name: 'Version', choices: ['1', '2', '3'], description: 'This is a test of choice'
+                booleanParam(name: 'Version', defaultValue: 'true', description: 'set to true or false')
 
  stages {
       stage('checkout') {
@@ -12,6 +16,11 @@ pipeline {
         }
   stage('Execute Maven') {
            steps {
+		   when {
+			   expression {
+				   params.Version == 'true'
+			   }
+		   }
              
                 sh 'mvn package'             
           }
@@ -19,6 +28,11 @@ pipeline {
 
        stage('Docker Build and Tag') {
            steps {
+		     when {
+			   expression {
+				   params.Version == 'true'
+			   }
+		   }
               
                 sh 'docker build -t helloworld:latest .' 
                 sh 'docker tag helloworld nishank/helloworld:latest'
