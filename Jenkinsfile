@@ -1,5 +1,6 @@
 
 String gitbranch = "release-15.0.0"
+String dockername = ""
 
 pipeline {
     agent any
