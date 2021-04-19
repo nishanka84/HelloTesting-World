@@ -5,7 +5,7 @@ pipeline {
 	parameters {
 		choice(name: 'Version', choices: ['1', '2', '3'], description: 'This is a test of choice'
                 booleanParam(name: 'Test', defaultValue: 'false', description: 'set to true or false')
-		       }
+	      }
 
  stages {
       stage('checkout') {
