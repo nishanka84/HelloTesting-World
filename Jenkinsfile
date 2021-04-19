@@ -31,7 +31,7 @@ pipeline {
 		      
       stage('checkout') {
            steps {
-		   If(params.Git == true) {
+		   If (params.Git == true) {
              
                          git branch: 'master', url: 'https://github.com/nishanka84/HelloTesting-World.git'
 		   } else {
