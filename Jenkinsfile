@@ -16,14 +16,14 @@ pipeline {
 
  stages {
       stage('Initialize') {
-	   steps {
-		   script {
+	  steps {
+	      script {
 			
 		      def pipeline = pipelineCfg("test.yaml")
 			   
 			   dockername = "${docker_name}"
-		   }
-	    }
+               }
+	   }
        }
 		   
 		      
@@ -50,12 +50,13 @@ pipeline {
 
        stage('Docker Build and Tag') {
            steps {
+		script {
               
 		   sh "docker build -t ${dockername}:latest ." 
 		   sh "docker tag ${dockername} nishank/${dockername}:latest"
                 //sh 'docker tag samplewebapp nikhilnidhi/samplewebapp:$BUILD_NUMBER'
 		   echo "Version Test ${params.Version}"
-               
+                }
           }
         }
        stage('Run Docker container on Jenkins Agent') {
