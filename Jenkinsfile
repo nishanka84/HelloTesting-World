@@ -11,7 +11,7 @@ pipeline {
 
 	parameters {
 		choice(name: 'Version', choices: ['1', '2', '3'], description: 'This is a test of choice')
-                booleanparam defaultValue: true, description: 'Select this option to trigger a release build', name: 'Test'
+                booleanParam(defaultValue: true, description: 'Select this option to trigger a release build', name: 'Test')
         }
 
  stages {
