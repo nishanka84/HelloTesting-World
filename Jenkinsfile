@@ -20,7 +20,7 @@ pipeline {
 	  steps {
 	      script {
 			
-		      def pipeline = pipelineCfg("test.yaml")
+		      def pipeline = "test.yaml"
 			   
 			   dockername = "${docker_name}"
                }
