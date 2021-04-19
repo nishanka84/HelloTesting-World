@@ -4,7 +4,7 @@ String gitbranch = "release-15.0.0"
 pipeline {
     agent any
 	environment {
-		VERSION_NUMBER: '1.5.4'
+		VERSION_NUMBER = '1.5.4'
 		
 	}	
 	
