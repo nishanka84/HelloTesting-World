@@ -45,19 +45,15 @@ pipeline {
 		  script {
 			  gv.mavenbuild()
 		  }
-             
-                sh 'mvn package'
-		  echo "print ${VERSION_NUMBER}"
-		  echo "print ${gitbranch}"
           }
-        }
+    }
 
        stage('Docker Build and Tag') {
            steps {
 		script {
               
-		   sh "docker build -t ${dockername}:latest ." 
-		   sh "docker tag ${dockername} nishank/${dockername}:latest"
+		   sh "docker build -t helloworld:latest ." 
+		   sh "docker tag helloworld nishank/helloworld:latest"
                 //sh 'docker tag samplewebapp nikhilnidhi/samplewebapp:$BUILD_NUMBER'
 		   echo "Version Test ${params.Version}"
                 }
