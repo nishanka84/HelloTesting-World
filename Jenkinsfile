@@ -16,12 +16,12 @@ pipeline {
           }
         }
   stage('Execute Maven') {
-           steps {
-		   when {
+      		   when {
 			   expression {
 				   params.Test == 'true'
 			   }
 		   }
+	  steps {
              
                 sh 'mvn package'             
           }
