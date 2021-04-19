@@ -11,7 +11,7 @@ pipeline {
 
 	parameters {
 		choice(name: 'Version', choices: ['1', '2', '3'], description: 'This is a test of choice')
-                string(defaultValue: true, description: 'Select this option to trigger a release build', name: 'Test')
+                booleanparam defaultValue: true, description: 'Select this option to trigger a release build', name: 'Test'
         }
 
  stages {
@@ -25,7 +25,7 @@ pipeline {
   stage('Execute Maven') {
       		   when {
 			   expression {
-				   params.Test == 'false'
+				   params.Test == true
 			   }
 		   }
 	  steps {
