@@ -3,9 +3,9 @@ pipeline {
 	
 
 	parameters {
-		choice(name: 'Version', choices: ['1', '2', '3'], description: 'This is a test of choice'
-                booleanParam(name: 'Test', defaultValue: 'false', description: 'set to true or false')
-	      }
+		choice(name: 'Version', choices: ['1', '2', '3'], description: 'This is a test of choice')
+                booleanParam defaultValue: false, description: 'Select this option to trigger a release build', name: 'Test'
+        }
 
  stages {
       stage('checkout') {
@@ -19,7 +19,7 @@ pipeline {
            steps {
 		   when {
 			   expression {
-				   params.Version == 'true'
+				   params.Test == 'true'
 			   }
 		   }
              
@@ -33,7 +33,7 @@ pipeline {
                 sh 'docker build -t helloworld:latest .' 
                 sh 'docker tag helloworld nishank/helloworld:latest'
                 //sh 'docker tag samplewebapp nikhilnidhi/samplewebapp:$BUILD_NUMBER'
-		   echo "Version Test ${params.Test}"
+		   echo "Version Test ${params.Version}"
                
           }
         }
