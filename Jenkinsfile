@@ -1,11 +1,11 @@
 def gv
-String gitbranch = "release-15.0.0"
 String dockername = ""
 
 pipeline {
     agent any
 	environment {
 		VERSION_NUMBER = '1.5.4'
+		gitbranch = 'release-15.0.0'
 		
 	}	
 	
