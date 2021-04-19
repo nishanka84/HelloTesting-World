@@ -25,7 +25,7 @@ pipeline {
   stage('Execute Maven') {
       		   when {
 			   expression {
-				   params.Test == 'true'
+				   params.Test == 'false'
 			   }
 		   }
 	  steps {
