@@ -33,11 +33,10 @@ pipeline {
            steps {
 		   If (params.Git == true) {
              
-                         git branch: 'master', url: 'https://github.com/nishanka84/HelloTesting-World.git'
-		   } 
-		   else {
-			 echo " Git branch not specified"
-		   }
+                       git branch: 'master', url: 'https://github.com/nishanka84/HelloTesting-World.git'
+		   } else {
+		       echo " Git branch not specified"
+	   }
                    
           }
         }
