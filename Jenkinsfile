@@ -22,7 +22,7 @@ pipeline {
 			
 		 //     def pipeline = pipelineConfig("test.yaml")
 		        gv = load "variables.groovy"	   
-			   dockername = "${docker_name}"
+			   
                }
 	   }
        }
@@ -42,6 +42,9 @@ pipeline {
 			   }
 		   }
 	  steps {
+		  script {
+			  gv.mavenbuild()
+		  }
              
                 sh 'mvn package'
 		  echo "print ${VERSION_NUMBER}"
