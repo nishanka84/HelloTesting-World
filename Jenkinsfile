@@ -13,6 +13,7 @@ pipeline {
 	parameters {
 		choice(name: 'Version', choices: ['1', '2', '3'], description: 'This is a test of choice')
                 booleanParam(defaultValue: true, description: 'Select this option to trigger a release build', name: 'Test')
+		booleanParam(defaultValue: true, description: 'Select this option to trigger a release build', name: 'Git')
         }
 
  stages {
@@ -30,9 +31,13 @@ pipeline {
 		      
       stage('checkout') {
            steps {
+		   If(params.Git == true) {
              
-                git branch: 'master', url: 'https://github.com/nishanka84/HelloTesting-World.git'
-             
+                         git branch: 'master', url: 'https://github.com/nishanka84/HelloTesting-World.git'
+		   } else {
+			 echo " Git branch not specified"
+		   }
+                   
           }
         }
   stage('Execute Maven') {
