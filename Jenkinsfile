@@ -41,6 +41,7 @@ pipeline {
              
             steps 
 			{
+		sh "docker stop nishank/helloworld"
                 sh "docker run -d -p 80:8080 nishank/helloworld"
  
             }
