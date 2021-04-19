@@ -68,11 +68,13 @@ pipeline {
        stage('Run Docker container on Jenkins Agent') {
              
             steps {
-		    try {
+		    script {
+		         try {
 			  
-		      sh "docker stop modest_thompson "
-                      sh "docker run -d -p 80:8080 nishank/helloworld"
-		    } catch (err) {
+		            sh "docker stop modest_thompson "
+                            sh "docker run -d -p 80:8080 nishank/helloworld"
+		         } catch (err) {
+		         }
 		    }
             }
         }
