@@ -6,6 +6,7 @@ pipeline {
 	environment {
 		VERSION_NUMBER = '1.5.4'
 		gitbranch = 'release-15.0.0'
+		// test everything
 		
 	}	
 	
