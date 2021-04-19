@@ -1,5 +1,12 @@
+
+String gitbranch = "release-15.0.0"
+
 pipeline {
     agent any
+	environment {
+		VERSION_NUMBER: '1.5.4'
+		
+	}	
 	
 
 	parameters {
@@ -23,7 +30,9 @@ pipeline {
 		   }
 	  steps {
              
-                sh 'mvn package'             
+                sh 'mvn package'
+		  echo "print ${VERSION_NUMBER}"
+		  echo "print ${gitbranch}"
           }
         }
 
@@ -41,7 +50,7 @@ pipeline {
              
             steps 
 			{
-		sh "docker stop quirky_burnell"
+		sh "docker stop tender_aryabhata "
                 sh "docker run -d -p 80:8080 nishank/helloworld"
  
             }
