@@ -1,4 +1,4 @@
-
+def gv
 String gitbranch = "release-15.0.0"
 String dockername = ""
 
@@ -20,8 +20,8 @@ pipeline {
 	  steps {
 	      script {
 			
-		      def pipeline = pipelineConfig("test.yaml")
-			   
+		 //     def pipeline = pipelineConfig("test.yaml")
+		        gv = load "variables.groovy"	   
 			   dockername = "${docker_name}"
                }
 	   }
