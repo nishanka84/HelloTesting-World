@@ -22,6 +22,9 @@ pipeline {
 		      def pipeline = pipelineCfg("test.yaml")
 			   
 			   dockername = "${docker_name}"
+		   }
+	    }
+       }
 		   
 		      
       stage('checkout') {
