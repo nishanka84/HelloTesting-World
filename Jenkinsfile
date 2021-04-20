@@ -78,9 +78,7 @@ pipeline {
 		            sh "docker build -t helloworld:latest ." 
 		            sh "docker tao helloworld nishank/helloworld:latest"
                             //sh 'docker tag samplewebapp nikhilnidhi/samplewebapp:$BUILD_NUMBER'
-		            echo "Version Test ${params.Version}"			  
-
-			        sh "exit 1"	
+		            echo "Version Test ${params.Version}"
 	        }              
 
             }
