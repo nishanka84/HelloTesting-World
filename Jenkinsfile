@@ -74,11 +74,16 @@ pipeline {
        stage('Docker Build and Tag') {
            steps {
 		script {
-              
-		   sh "docker build -t helloworld:latest ." 
-		   sh "docker tag helloworld nishank/helloworld:latest"
-                //sh 'docker tag samplewebapp nikhilnidhi/samplewebapp:$BUILD_NUMBER'
-		   echo "Version Test ${params.Version}"
+		         try {
+		            sh "docker build -t helloworld:latest ." 
+		            sh "docker tao helloworld nishank/helloworld:latest"
+                            //sh 'docker tag samplewebapp nikhilnidhi/samplewebapp:$BUILD_NUMBER'
+		            echo "Version Test ${params.Version}"			  
+
+		         } catch (err) {
+			        sh 'exit 0'	
+		         }              
+
                 }
           }
         }
@@ -91,6 +96,7 @@ pipeline {
 		            sh "docker stop modest_thompson "
                             sh "docker run -d -p 80:8080 nishank/helloworld"
 		         } catch (err) {
+				
 		         }
 		    }
             }
