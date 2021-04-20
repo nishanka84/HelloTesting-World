@@ -80,7 +80,7 @@ pipeline {
                             //sh 'docker tag samplewebapp nikhilnidhi/samplewebapp:$BUILD_NUMBER'
 		            echo "Version Test ${params.Version}"			  
 
-		         } catch (err) {
+		         } catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
 			        sh 'exit 1'	
 		         }              
 
