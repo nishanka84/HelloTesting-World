@@ -81,7 +81,7 @@ pipeline {
 		            echo "Version Test ${params.Version}"			  
 
 		         } catch (err) {
-			        sh 'exit 0'	
+			        sh 'exit 1'	
 		         }              
 
                 }
