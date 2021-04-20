@@ -76,7 +76,7 @@ pipeline {
 		   
 	        catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
 		            sh "docker build -t helloworld:latest ." 
-		            sh "docker tao helloworld nishank/helloworld:latest"
+		            sh "docker tag helloworld nishank/helloworld:latest"
                             //sh 'docker tag samplewebapp nikhilnidhi/samplewebapp:$BUILD_NUMBER'
 		            echo "Version Test ${params.Version}"
 	        }              
