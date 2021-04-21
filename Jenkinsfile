@@ -2,7 +2,7 @@ def gv
 String dockername = ""
 String test = ""
 
-def file = readFile "${env.WORKSPACE}/test.yaml"
+
 
 pipeline {
     agent any
@@ -10,7 +10,9 @@ pipeline {
 		VERSION_NUMBER = '1.5.4'
 		gitbranch = 'release-15.0.0'
 		// test everything	
+		
 	}	
+	def file = readFile "${env.WORKSPACE}/test.yaml"
 	
 	
 
