@@ -30,7 +30,7 @@ pipeline {
 		 //     def pipeline = pipelineConfig("test.yaml")
 		  //      def file = readYaml file: test.yaml
 		          def file = readFile "${env.WORKSPACE}/test.yaml"
-		          test = ${file.test_file}
+		          test = "${file.test_file}"
 		     //   retun this
 		        gv = load "variables.groovy"	   
 			   
