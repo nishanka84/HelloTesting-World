@@ -12,7 +12,7 @@ pipeline {
 		// test everything	
 		
 	}	
-	def file = readFile "${env.WORKSPACE}/test.yaml"
+	
 	
 	
 
@@ -29,6 +29,8 @@ pipeline {
 			
 		 //     def pipeline = pipelineConfig("test.yaml")
 		  //      def file = readYaml file: test.yaml
+		          def file = readFile "${env.WORKSPACE}/test.yaml"
+		          test = ${file.test_file}
 		     //   retun this
 		        gv = load "variables.groovy"	   
 			   
@@ -61,7 +63,7 @@ pipeline {
                        git branch: 'master', url: 'https://github.com/nishanka84/HelloTesting-World.git'
 		       echo "${file.test} branch specified"
 		   } else {
-			   echo " ${file.test} branch not specified"
+			   echo " ${test} branch not specified"
 	         }
 	        }      
           }
