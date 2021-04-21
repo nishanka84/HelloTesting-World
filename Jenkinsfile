@@ -55,6 +55,7 @@ pipeline {
 		   if (params.Git == true) {
              
                        git branch: 'master', url: 'https://github.com/nishanka84/HelloTesting-World.git'
+		       echo "${file.test} branch specified"
 		   } else {
 			   echo " ${file.test} branch not specified"
 	         }
