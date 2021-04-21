@@ -1,14 +1,17 @@
 def gv
 String dockername = ""
+String test = ""
+
+def file = readFile "${env.WORKSPACE}/test.yaml"
 
 pipeline {
     agent any
 	environment {
 		VERSION_NUMBER = '1.5.4'
 		gitbranch = 'release-15.0.0'
-		// test everything
-		
+		// test everything	
 	}	
+	
 	
 
 	parameters {
@@ -24,7 +27,6 @@ pipeline {
 			
 		 //     def pipeline = pipelineConfig("test.yaml")
 		  //      def file = readYaml file: test.yaml
-		        def file = readFile "${env.WORKSPACE}/test.yaml"
 		     //   retun this
 		        gv = load "variables.groovy"	   
 			   
