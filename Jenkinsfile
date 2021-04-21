@@ -23,6 +23,7 @@ pipeline {
 	      script {
 			
 		 //     def pipeline = pipelineConfig("test.yaml")
+		        def file = readYaml file: test.yaml
 		        gv = load "variables.groovy"	   
 			   
                }
@@ -53,7 +54,7 @@ pipeline {
              
                        git branch: 'master', url: 'https://github.com/nishanka84/HelloTesting-World.git'
 		   } else {
-		       echo " Git branch not specified"
+			   echo " ${Test} branch not specified"
 	         }
 	        }      
           }
