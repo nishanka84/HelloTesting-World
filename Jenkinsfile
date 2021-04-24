@@ -12,11 +12,11 @@ pipeline {
 	
 	
 
-	parameters {
+/*	parameters {
 		choice(name: 'Version', choices: ['1', '2', '3'], description: 'This is a test of choice')
                 booleanParam(defaultValue: true, description: 'Select this option to trigger a release build', name: 'Test')
 		booleanParam(defaultValue: true, description: '', name: 'Git')
-        }
+        }*/
 
  stages {
 //      stage('Initialize') {
