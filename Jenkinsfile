@@ -17,9 +17,9 @@ pipeline {
 			    script {
 				    
 		                  if (params.RELEASE_BUILD == true) {	
-                                  buildType = "release"
+                                       buildType = "release"
                                   } else {
-                                  buildType = "snapshot"
+                                       buildType = "snapshot"
                                   }
 			    }
 		    } 
