@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage ('Example') {
             steps { 
-		parallel windows: "windows", unix: "unix", ubuntu: "ubuntu"
+		parallel win: "windows", uni: "unix", ubun: "ubuntu"
 
             }
         }
