@@ -3,6 +3,13 @@
 
 pipeline {
     agent any
+	
+	parameters {
+		//choice(name: 'Version', choices: ['1', '2', '3'], description: 'This is a test of choice')
+                booleanParam(defaultValue: true, description: 'Select this option to trigger a release build', name: 'Build')
+		//booleanParam(defaultValue: true, description: '', name: 'Git')
+        }
+
     stages {
         stage ('Example') {
             steps { 
@@ -28,6 +35,18 @@ pipeline {
 		       passout type: "master", message: "https://github.com/nishanka84/HelloTesting-World.git"
            }
        }
+       stage('Execute Maven') {
+      		   when {
+			   expression {
+				   params.Build == true
+			   }
+		   }
+	  steps {
+		  script {
+			  mavenBuild.info 'Building Maven Package'
+		  }
+          }
+    }
 
 
     }
