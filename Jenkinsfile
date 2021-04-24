@@ -27,7 +27,7 @@ pipeline {
 	    }
 				
 
-        stage ('Example') {
+/*        stage ('Example') {
             steps { 
 			parallel (
 			      ubuntu: {
@@ -43,7 +43,7 @@ pipeline {
 				      sleep 10
 			      }
 			)
-            }
+            } */
         } 
        stage ('checkout') {
             steps {
@@ -77,7 +77,7 @@ pipeline {
              
             steps {
 		    script {
-			    dockerRun.run()
+			    dockerRun.kube()
 		    }
 	    }
 	 }
