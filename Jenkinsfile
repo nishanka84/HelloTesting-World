@@ -1,9 +1,4 @@
-def gv
-String dockername = ""
-String test = ""
-String test_file = ""
-
-
+@Library('shared-nishank') _
 
 pipeline {
     agent any
@@ -24,51 +19,35 @@ pipeline {
         }
 
  stages {
-      stage('Initialize') {
-	  steps {
-	      script {
+//      stage('Initialize') {
+//	  steps {
+//	      script {
 			
 		 //     def pipeline = pipelineConfig("test.yaml")
 		  //      def file = readYaml file: test.yaml
-		          def file = readFile "${env.WORKSPACE}/test.yaml"
-		          test = "${file.test_file}"
+		       //   def file = readFile "${env.WORKSPACE}/test.yaml"
+		      //    test = "${file.test_file}"
 		     //   retun this
-		        gv = load "variables.groovy"	   
+		    //    gv = load "variables.groovy"	   
 			   
-               }
-	   }
-       }
+  //             }
+//	   }
+  //     }
       stage('paralleltest') {
 	      steps { 
-		      parallel(
-			      ubuntu: {
-				      echo "Test ubuntu"
-				      sleep 10
-			      },
-			      windows: {
-				      echo "Test windows"
-				      sleep 10
-			      },
-			      unix: {
-				      echo "Test unix"
-				      sleep 10
-			      }
-		        )	      
+		   script {
+		        parallel ubuntu: "ubuntu", windows: "windows", unix: "unix"	
+		   }
 	      }
       }
       stage('checkout') {
            steps {
 		script {
-		   if (params.Git == true) {
-             
-                       git branch: 'master', url: 'https://github.com/nishanka84/HelloTesting-World.git'
-		       echo "${test} branch specified"
-		   } else {
-			   echo " ${test} branch not specified"
-	         }
+	             checkout branch: "master", url: "https://github.com/nishanka84/HelloTesting-World.git
+
 	        }      
-          }
-        }
+           }
+       }
   stage('Execute Maven') {
       		   when {
 			   expression {
