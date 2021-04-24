@@ -1,7 +1,7 @@
 @Library('shared-nishank') _
 
 pipeline {
-    agent any
+    agent none
 	environment {
 		VERSION_NUMBER = '1.5.4'
 		gitbranch = 'release-15.0.0'
