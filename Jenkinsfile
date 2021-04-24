@@ -61,7 +61,7 @@ pipeline {
 		  script {
 			  
 			  
-			  mavenBuild buildType: "${buildType}", message: "Not triggeering maven package since buildtype is false"
+			  mavenBuild buildType: "${buildType}"
 		  }
           }
     }
