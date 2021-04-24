@@ -1,5 +1,33 @@
 @Library('shared-nishank') _
 
+
+pipeline {
+    agent none
+    stages {
+        stage ('Example') {
+            steps { 
+		      parallel(
+			      ubuntu: {
+				      echo "Test ubuntu"
+				      sleep 10
+			      },
+			      windows: {
+				      echo "Test windows"
+				      sleep 10
+			      },
+			      unix: {
+				      echo "Test unix"
+				      sleep 10
+			      }
+		        )	      
+              //  testing name: 'git'
+            }
+        }
+
+    }
+}
+/*@Library('shared-nishank') _
+
 pipeline {
     agent any
 	environment {
@@ -16,7 +44,7 @@ pipeline {
 		choice(name: 'Version', choices: ['1', '2', '3'], description: 'This is a test of choice')
                 booleanParam(defaultValue: true, description: 'Select this option to trigger a release build', name: 'Test')
 		booleanParam(defaultValue: true, description: '', name: 'Git')
-        }*/
+        }
 
  stages {
 //      stage('Initialize') {
@@ -54,7 +82,7 @@ pipeline {
 		//   }
 	      }
       }
- /*     stage('checkout') {
+    stage('checkout') {
            steps {
 		script {
 	             checkout branch: "master", url: "https://github.com/nishanka84/HelloTesting-World.git"
@@ -101,6 +129,7 @@ pipeline {
 		         }
 		    }
             }
-        }*/
+        }
     }
 }
+*/
