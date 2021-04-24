@@ -65,7 +65,14 @@ pipeline {
 		  }
           }
     }
-
-
+      stage('Docker Build and Tag') {
+           steps {
+		   script {
+			   def call() {
+				   dockerBuild.execute()
+			   }
+		   }   
+	    }
+       }
     }
 }
