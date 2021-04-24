@@ -22,6 +22,14 @@ pipeline {
 		        )	      
             }
         }
+       stage ('checkout') {
+            steps {
+		script {
+	             checkout branch: "master", url: "https://github.com/nishanka84/HelloTesting-World.git"
+	        }
+           }
+       }
+
 
     }
 }
