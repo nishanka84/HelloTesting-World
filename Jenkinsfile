@@ -5,6 +5,11 @@ String buildType = ""
 pipeline {
     agent any
 	
+        triggers {
+            github(triggerOnPush: true, triggerOnMergeRequest: true, branchFilterType: 'All')
+        }
+
+	
 	parameters {
 		//choice(name: 'Version', choices: ['1', '2', '3'], description: 'This is a test of choice')
                 booleanParam(defaultValue: false, description: 'Select this option to trigger a release build', name: 'RELEASE_BUILD')
