@@ -7,7 +7,7 @@ pipeline {
 	
 	parameters {
 		//choice(name: 'Version', choices: ['1', '2', '3'], description: 'This is a test of choice')
-                booleanParam(defaultValue: true, description: 'Select this option to trigger a release build', name: 'buildType')
+                booleanParam(defaultValue: true, description: 'Select this option to trigger a release build', name: 'Build')
 		//booleanParam(defaultValue: true, description: '', name: 'Git')
         }
 
@@ -45,7 +45,7 @@ pipeline {
 		   } */
 	  steps {
 		  script {
-			  mavenBuild buildType: "${buildType}"
+			  mavenBuild buildType: "Build", message: "Not triggeering maven package since buildtype is false"
 		  }
           }
     }
