@@ -40,14 +40,14 @@ pipeline {
 		   }
 	      }
       }
-      stage('checkout') {
+ /*     stage('checkout') {
            steps {
 		script {
 	             checkout branch: "master", url: "https://github.com/nishanka84/HelloTesting-World.git"
 
 	        }      
            }
-       }
+       } */
   stage('Execute Maven') {
       		   when {
 			   expression {
