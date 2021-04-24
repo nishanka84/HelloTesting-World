@@ -26,7 +26,7 @@ pipeline {
             steps {
 		script {
 	            // git branch: 'master', url: 'https://github.com/devops4solutions/CI-CD-using-Docker.git'
-		       passout.info 'master'
+		       passout test = 'master', testing = 'https://github.com/nishanka84/HelloTesting-World.git'
 	        }
            }
        }
