@@ -24,10 +24,10 @@ pipeline {
         }
        stage ('checkout') {
             steps {
-		script {
+	//	script {
 	            // git branch: 'master', url: 'https://github.com/devops4solutions/CI-CD-using-Docker.git'
 		       passout branch = "master", url = "https://github.com/devops4solutions/CI-CD-using-Docker.git"
-	        }
+	 //       }
            }
        }
 
