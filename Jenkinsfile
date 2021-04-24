@@ -1,5 +1,6 @@
 @Library('shared-nishank') _
 
+String buildType = ""
 
 pipeline {
     agent any
