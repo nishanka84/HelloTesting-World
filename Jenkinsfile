@@ -1,6 +1,5 @@
 @Library('shared-nishank') _
 
-def code
 
 pipeline {
     agent any
@@ -36,9 +35,7 @@ pipeline {
 		       passout type: "master", message: "https://github.com/nishanka84/HelloTesting-World.git"
            }
        }
-       stage('load groovy') {
-	       code = load 'mavenBuild.groovy'
-       }
+
        stage('Execute Maven') {
       		 /*  when {
 			   expression {
@@ -47,7 +44,7 @@ pipeline {
 		   } */
 	  steps {
 		  script {
-			  code.call1()
+			  mavenBuild buildType: "${buildType}"
 		  }
           }
     }
