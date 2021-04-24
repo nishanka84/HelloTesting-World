@@ -81,6 +81,8 @@ pipeline {
              
             steps {
 		    script {
-			    dockerRun.
+			    dockerRun.run()
+		    }
+	    }	    
     }
 }
