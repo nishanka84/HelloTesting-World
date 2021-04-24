@@ -35,9 +35,23 @@ pipeline {
   //     }
       stage('paralleltest') {
 	      steps { 
-		   script {
-		        parallel ubuntu: "ubuntu", windows: "windows", unix: "unix"	
-		   }
+		      parallel(
+			      ubuntu: {
+				      echo "Test ubuntu"
+				      sleep 10
+			      },
+			      windows: {
+				      echo "Test windows"
+				      sleep 10
+			      },
+			      unix: {
+				      echo "Test unix"
+				      sleep 10
+			      }
+		        )	      
+		//   script {
+		//        parallel ubuntu: "ubuntu", windows: "windows", unix: "unix"	
+		//   }
 	      }
       }
  /*     stage('checkout') {
