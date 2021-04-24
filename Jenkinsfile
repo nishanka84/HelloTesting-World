@@ -4,10 +4,6 @@ String buildType = ""
 
 pipeline {
     agent any
-	
-        triggers {
-            github(triggerOnPush: true, triggerOnMergeRequest: true, branchFilterType: 'All')
-        }
 
 	
 	parameters {
