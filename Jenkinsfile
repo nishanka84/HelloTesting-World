@@ -6,8 +6,20 @@ pipeline {
     stages {
         stage ('Example') {
             steps { 
-		    parallel type: "ubuntu"
-
+			parallel (
+			      ubuntu: {
+				      echo "Test ubuntu"
+				      sleep 10
+			      },
+			      windows: {
+				      echo "Test windows"
+				      sleep 10
+			      },
+			      unix: {
+				      echo "Test unix"
+				      sleep 10
+			      }
+			)
             }
         }
        stage ('checkout') {
