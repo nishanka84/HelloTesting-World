@@ -6,7 +6,9 @@ pipeline {
     stages {
         stage ('Example') {
             steps { 
-		parallel win: "windows", uni: "unix", ubun: "ubuntu"
+		    parallel win: "windows", uni: "unix", ubun: "ubuntu", {
+			    echo "This is a parallel execution
+		    }
 
             }
         }
