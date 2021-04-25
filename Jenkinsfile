@@ -1,6 +1,7 @@
 @Library('shared-nishank') _
 
 String buildType = ""
+String goat = ""
 
 pipeline {
     agent any
@@ -9,13 +10,18 @@ pipeline {
 	parameters {
 		//choice(name: 'Version', choices: ['1', '2', '3'], description: 'This is a test of choice')
                 booleanParam(defaultValue: false, description: 'Select this option to trigger a release build', name: 'RELEASE_BUILD')
-		//booleanParam(defaultValue: true, description: '', name: 'Git')
+		booleanParam(defaultValue: false, description: '', name: 'Git')
         }
 
     stages {
 	    stage('Initialize') {
 		    steps {
 			    script {
+				   if (params.Git == true) {
+					goat = "true"
+				   } else {
+					goat = "false"
+				   }
 				    
 		                  if (params.RELEASE_BUILD == true) {	
                                        buildType = "release"
@@ -45,6 +51,11 @@ pipeline {
 			)
             } 
         } */
+       stage ('Test params') {
+	     steps {
+		     testingSomething goat: "${goat}"
+	     }
+       }
        stage ('checkout') {
             steps {
 	            // git branch: 'master', url: 'https://github.com/devops4solutions/CI-CD-using-Docker.git'
