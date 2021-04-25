@@ -18,8 +18,8 @@ pipeline {
 	    stage('Initialize') {
 		    steps {
 			    script {
-				   def pipeline = pipelineconfig("test.yaml")
-				    testfile = "${pipeline.test_file}"
+				   def pipeline = pipelineconfig("config.yaml")
+				    testfile = "${pipeline.muffler}"
 				    echo "${testfile}"
 				   if (params.Git == true) {
 					goat = "true"
