@@ -2,6 +2,7 @@
 
 String buildType = ""
 String goat = ""
+String testfile = ""
 
 pipeline {
     agent any
@@ -17,6 +18,9 @@ pipeline {
 	    stage('Initialize') {
 		    steps {
 			    script {
+				   def pipeline = pipelineconfig("test.yaml")
+				    testfile = "${pipeline.test_file}"
+				    echo "${testfile}"
 				   if (params.Git == true) {
 					goat = "true"
 				   } else {
@@ -26,7 +30,7 @@ pipeline {
 		                  if (params.RELEASE_BUILD == true) {	
                                        buildType = "release"
                                   } else {
-                                       buildType = "snapshot"
+                                       buildType = "snapshot"			  
                                   }
 			    }
 		    } 
