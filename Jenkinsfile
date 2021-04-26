@@ -3,7 +3,7 @@
 String buildType = ""
 String goat = ""
 String testfile = ""
-String cat = "Dog"
+String cat = ""
 
 pipeline {
     agent any
@@ -24,6 +24,7 @@ pipeline {
 				 //   echo "${testfile}"
 				   if (params.Git == true) {
 					goat = "true"
+					cat = Dog
 				   } else {
 					goat = "false"
 				   }
