@@ -22,7 +22,7 @@ pipeline {
 			    script {
 				   def pipeline = pipelineCfg()
 				  // testfile = "${pipeline.muffler}"
-				   echo "${p.muffler}"
+				   echo "${pipeline.muffler}"
 				   if (params.Git == true) {
 					goat = "true"
 					
