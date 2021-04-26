@@ -20,9 +20,9 @@ pipeline {
 	    stage('Initialize') {
 		    steps {
 			    script {
-				   def pipeline = pipelinecfg()
-				   testfile = "${pipeline.muffler}"
-				   echo "${testfile}"
+				   def pipeline = pipelineCfg()
+				  // testfile = "${pipeline.muffler}"
+				   echo "${p.muffler}"
 				   if (params.Git == true) {
 					goat = "true"
 					
