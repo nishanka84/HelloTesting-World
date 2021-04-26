@@ -3,8 +3,8 @@
 String buildType = ""
 String goat = ""
 String testfile = ""
-String cat = ""
-String Dog = ""
+
+
 
 pipeline {
     agent any
@@ -25,7 +25,7 @@ pipeline {
 				 //   echo "${testfile}"
 				   if (params.Git == true) {
 					goat = "true"
-					cat = "Dog"
+					
 				   } else {
 					goat = "false"
 				   }
@@ -60,7 +60,7 @@ pipeline {
         } */
        stage ('Test params') {
 	     steps {
-		     testingSomething goat: "${goat}", cat: "${cat}"
+		     testingSomething goat: "${goat}", cat: Dog
 	     }
        }
        stage ('checkout') {
