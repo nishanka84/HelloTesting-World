@@ -20,7 +20,7 @@ pipeline {
 	    stage('Initialize') {
 		    steps {
 			    script {
-				   def pipeline = pipelineconfig(config.yaml)
+				   def pipeline = pipelinecfg()
 				   testfile = "${pipeline.muffler}"
 				   echo "${testfile}"
 				   if (params.Git == true) {
