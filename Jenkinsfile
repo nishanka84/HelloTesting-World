@@ -60,7 +60,7 @@ pipeline {
         } */
        stage ('Test params') {
 	     steps {
-		     testingSomething goat: "${goat}", cat: Dog
+		     testingSomething goat: "${goat}", cat: "Dog"
 	     }
        }
        stage ('checkout') {
