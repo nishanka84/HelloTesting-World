@@ -7,7 +7,7 @@ String testfile = ""
 
 
 pipeline {
-    agent any
+    agent jenka
 
 	
 	parameters {
