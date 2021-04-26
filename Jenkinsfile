@@ -3,6 +3,7 @@
 String buildType = ""
 String goat = ""
 String testfile = ""
+String cat = "Dog"
 
 pipeline {
     agent any
@@ -19,8 +20,8 @@ pipeline {
 		    steps {
 			    script {
 				   def pipeline = pipelineconfig("config.yaml")
-				    testfile = "${pipeline.muffler}"
-				    echo "${testfile}"
+				 //   testfile = "${pipeline.muffler}"
+				 //   echo "${testfile}"
 				   if (params.Git == true) {
 					goat = "true"
 				   } else {
@@ -57,7 +58,7 @@ pipeline {
         } */
        stage ('Test params') {
 	     steps {
-		     testingSomething goat: "${goat}"
+		     testingSomething goat: "${goat}", cat: "${cat}"
 	     }
        }
        stage ('checkout') {
