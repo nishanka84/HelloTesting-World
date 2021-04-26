@@ -21,8 +21,8 @@ pipeline {
 		    steps {
 			    script {
 				   def pipeline = pipelineconfig("config.yaml")
-				 //   testfile = "${pipeline.muffler}"
-				 //   echo "${testfile}"
+				   testfile = "${pipeline.muffler}"
+				   echo "${testfile}"
 				   if (params.Git == true) {
 					goat = "true"
 					
