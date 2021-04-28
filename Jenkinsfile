@@ -63,6 +63,7 @@ pipeline {
        stage ('Test params') {
 	     steps {
 		     testingSomething goat: "${goat}", cat: "Dog"
+		     sleep 120
 	     }
        }
        stage ('checkout') {
