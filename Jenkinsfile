@@ -58,12 +58,12 @@ pipeline {
 				      sleep 10
 			      }
 			)
-            } 
-        } */
+            } */
+        } 
        stage ('Test params') {
 	     steps {
 		     testingSomething goat: "${goat}", cat: "Dog"
-		     sleep 120
+		  //   sleep 300
 	     }
        }
        stage ('checkout') {
