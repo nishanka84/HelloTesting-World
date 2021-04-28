@@ -24,7 +24,7 @@ pipeline {
 			    script {
 				   def pipeline = pipelineCfg()
 				  // testfile = "${pipeline.muffler}"
-				    println "${pipeline.muffler}"
+				    println "${pipeline.name}"
 				   if (params.Git == true) {
 					goat = "true"
 					
