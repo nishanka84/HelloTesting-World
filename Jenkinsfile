@@ -22,7 +22,7 @@ pipeline {
 	    stage('Initialize') {
 		    steps {
 			    script {
-				   def pipeline = pipelineCfg()
+				   Map pipeline = pipelineCfg()
 				  // testfile = "${pipeline.muffler}"
 				    println "${pipeline.name}"
 				   if (params.Git == true) {
