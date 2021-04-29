@@ -72,7 +72,7 @@ pipeline {
 		     lock(resource: 'Init', inversePrecedence: true) { 
 		     testingSomething goat: "${goat}", cat: "Dog"
 		     sleep 90
-	             echo "hii"
+	             echo "hi"
 		     milestone(ordinal: 3)
 		     }
 		     
