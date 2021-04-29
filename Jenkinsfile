@@ -21,7 +21,7 @@ pipeline {
 	    
 		    steps {
 			    milestone(ordinal: 1)
-			    lock(resource: 'test environment', inversePrecedence: true) {
+			    lock(resource: 'Init', inversePrecedence: true) {
 			    script {
 				   //def pipeline = pipelineCfg()
 				  // testfile = "${pipeline.muffler}"
@@ -68,10 +68,12 @@ pipeline {
       
 	     steps {
 		     
-		     
+		     lock(resource: 'Init', inversePrecedence: true) { 
 		     testingSomething goat: "${goat}", cat: "Dog"
 		     sleep 90
 	             echo "hi world"
+		     milestone(ordinal: 3)
+		     }
 		     
 	             
               }
@@ -96,16 +98,20 @@ pipeline {
 			  
 			  
 			  mavenBuild buildType: "${buildType}", message: "Not triggeering maven package since buildtype is false"
-			  milestone(ordinal: 3)
+			  
 
 		  }
           }
     }
       stage('Docker Build and Tag') {
            steps {
+		   lock(resource: 'dock', inversePrecedence: true) {
 		   script {
-	                dockerBuild.execute()   
+			
+	                dockerBuild.execute()
+	           milestone(ordinal: 4)
 		   }   
+		   }
 	    }
        }
          stage('Run Docker container on Jenkins Agent') {
