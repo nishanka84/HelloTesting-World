@@ -21,6 +21,7 @@ pipeline {
 	    
 		    steps {
 			    milestone(ordinal: 1)
+			    lock(resource: 'test environment', inversePrecedence: true) {
 			    script {
 				   //def pipeline = pipelineCfg()
 				  // testfile = "${pipeline.muffler}"
@@ -37,6 +38,8 @@ pipeline {
                                   } else {
                                        buildType = "snapshot"			  
                                   }
+			    milestone(ordinal: 2)
+			    }
 			    }
 		    } 
 	    }
@@ -64,13 +67,13 @@ pipeline {
        stage ('Test params') {
       
 	     steps {
-		     lock(resource: 'test environment', inversePrecedence: true) {
+		     
 		     
 		     testingSomething goat: "${goat}", cat: "Dog"
 		     sleep 90
 	             echo "hi world Anna Namaste"
-		     milestone(ordinal: 2)
-	             }
+		     
+	             
               }
        }
        
