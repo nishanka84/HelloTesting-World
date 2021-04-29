@@ -70,7 +70,6 @@ pipeline {
 		     sleep 90
 		    echo "1st step"
 		    echo "2nd step"
-		    echo "3rd step"
 		    milestone(ordinal: 2)
 	             }
               }
