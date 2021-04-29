@@ -26,6 +26,7 @@ pipeline {
 			    lock(resource: 'Init', inversePrecedence: true) {
 			    script {
 				    sleep 200
+				    echo "Hi"
 				   //def pipeline = pipelineCfg()
 				  // testfile = "${pipeline.muffler}"
 				  //  println pipeline."name"
