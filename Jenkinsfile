@@ -93,6 +93,7 @@ pipeline {
 			  
 			  
 			  mavenBuild buildType: "${buildType}", message: "Not triggeering maven package since buildtype is false"
+			  milestone(ordinal: 3)
 
 		  }
           }
