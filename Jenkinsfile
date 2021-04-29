@@ -20,8 +20,9 @@ pipeline {
 
     stages {
 	    stage('Initialize') {
-	    milestone()
+	    
 		    steps {
+			    milestone()
 			    script {
 				   def pipeline = pipelineCfg()
 				  // testfile = "${pipeline.muffler}"
@@ -61,16 +62,17 @@ pipeline {
 			)
             } 
         } */
-       lock(resource: 'test environment', inversePrecedence: true) {
+       
        stage ('Test params') {
       
 	     steps {
+		     lock(resource: 'test environment', inversePrecedence: true) {
 		     
 		     testingSomething goat: "${goat}", cat: "Dog"
 		     sleep 300
-	     }
-       }
-       milestone()
+		     milestone()
+	             }
+              }
        }
        
        stage ('checkout') {
