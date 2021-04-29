@@ -23,6 +23,7 @@ pipeline {
 			    milestone(ordinal: 1)
 			    lock(resource: 'Init', inversePrecedence: true) {
 			    script {
+				    sleep 200
 				   //def pipeline = pipelineCfg()
 				  // testfile = "${pipeline.muffler}"
 				  //  println pipeline."name"
