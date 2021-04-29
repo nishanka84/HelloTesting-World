@@ -22,7 +22,7 @@ pipeline {
 	    stage('Initialize') {
 	    
 		    steps {
-			    milestone()
+			    milestone(ordinal: 1)
 			    script {
 				   def pipeline = pipelineCfg()
 				  // testfile = "${pipeline.muffler}"
@@ -70,7 +70,7 @@ pipeline {
 		     
 		     testingSomething goat: "${goat}", cat: "Dog"
 		     sleep 300
-		     milestone()
+		     milestone(ordinal: 2)
 	             }
               }
        }
