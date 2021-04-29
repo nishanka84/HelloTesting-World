@@ -60,12 +60,17 @@ pipeline {
 			)
             } 
         } */
+       milestone()
        stage ('Test params') {
+       lock(resource: 'test environment', inversePrecedence: true) {
 	     steps {
+		     
 		     testingSomething goat: "${goat}", cat: "Dog"
-		     //sleep 150
+		     sleep 300
 	     }
        }
+       }
+       milestone()
        stage ('checkout') {
             steps {
 	            // git branch: 'master', url: 'https://github.com/devops4solutions/CI-CD-using-Docker.git'
