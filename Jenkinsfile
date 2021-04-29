@@ -71,7 +71,7 @@ pipeline {
 		     
 		     testingSomething goat: "${goat}", cat: "Dog"
 		     sleep 90
-	             echo "hi world Anna Namaste"
+	             echo "hi world Anna"
 		     
 	             
               }
