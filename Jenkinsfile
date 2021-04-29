@@ -7,7 +7,9 @@ String testfile = ""
 
 
 pipeline {
-	agent any
+	agent {
+             label 'jenka'
+	}
 
 	
 	parameters {
