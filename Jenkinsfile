@@ -67,7 +67,11 @@ pipeline {
 		     lock(resource: 'test environment', inversePrecedence: true) {
 		     
 		     testingSomething goat: "${goat}", cat: "Dog"
-		     sleep 150
+		     sleep 90
+		    echo "1st step"
+		    echo "2nd step"
+		    echo "3rd step"
+		    milestone(ordinal: 2)
 	             }
               }
        }
@@ -76,8 +80,7 @@ pipeline {
             steps {
 	            // git branch: 'master', url: 'https://github.com/devops4solutions/CI-CD-using-Docker.git'
 		       passout type: "master", message: "https://github.com/nishanka84/HelloTesting-World.git"
-		    echo "1st step"
-		    echo "2nd step"
+
            }
        }
 
@@ -92,8 +95,7 @@ pipeline {
 			  
 			  
 			  mavenBuild buildType: "${buildType}", message: "Not triggeering maven package since buildtype is false"
-			  echo "3rd step"
-			  milestone(ordinal: 2)
+
 		  }
           }
     }
