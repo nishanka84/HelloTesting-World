@@ -22,9 +22,9 @@ pipeline {
 		    steps {
 			    milestone(ordinal: 1)
 			    script {
-				   def pipeline = pipelineCfg()
+				   //def pipeline = pipelineCfg()
 				  // testfile = "${pipeline.muffler}"
-				    println pipeline."name"
+				  //  println pipeline."name"
 				   if (params.Git == true) {
 					goat = "true"
 					
