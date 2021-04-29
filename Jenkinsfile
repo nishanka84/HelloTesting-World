@@ -68,7 +68,7 @@ pipeline {
 		     
 		     testingSomething goat: "${goat}", cat: "Dog"
 		     sleep 90
-	             echo "hi"
+	             echo "hi world"
 		     milestone(ordinal: 2)
 	             }
               }
