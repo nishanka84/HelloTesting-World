@@ -7,7 +7,7 @@ String testfile = ""
 
 
 pipeline {
-	agent none
+	agent any
 
 	
 	parameters {
@@ -67,11 +67,7 @@ pipeline {
 		     lock(resource: 'test environment', inversePrecedence: true) {
 		     
 		     testingSomething goat: "${goat}", cat: "Dog"
-		     sleep 300
-	             echo "1st step"
-		     echo "2nd step"
-		     echo "3rd step"
-		     milestone(ordinal: 2)
+		     sleep 150
 	             }
               }
        }
@@ -94,6 +90,7 @@ pipeline {
 			  
 			  
 			  mavenBuild buildType: "${buildType}", message: "Not triggeering maven package since buildtype is false"
+			  milestone(ordinal: 2)
 		  }
           }
     }
