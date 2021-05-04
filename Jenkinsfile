@@ -22,7 +22,7 @@ pipeline {
 	     steps {
 		     
 		 //    write branch: "master", gitUrl: "https://github.com/nishanka84/HelloTesting-World.git", texting: "Nishank is learning groovy"
-                     write.test name: "Nishank"
+                     write.test 'Nishank'
               }
 		     
 	             
