@@ -21,7 +21,7 @@ pipeline {
       
 	     steps {
 		     
-		     write type: "master", gitUrl: "https://github.com/nishanka84/HelloTesting-World.git", texting: "Nishank is learning groovy"
+		     write branch: "master", gitUrl: "https://github.com/nishanka84/HelloTesting-World.git", texting: "Nishank is learning groovy"
 
               }
 		     
