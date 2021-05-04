@@ -7,7 +7,7 @@ String testfile = ""
 
 
 pipeline {
-	agent none
+	agent any
 
 	
 	parameters {
