@@ -21,7 +21,7 @@ pipeline {
       
 	     steps {
 		     
-		     write.writing texting: "Nishank is learning groovy"
+		     write texting: "Nishank is learning groovy"
 
               }
 		     
