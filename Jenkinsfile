@@ -21,7 +21,7 @@ pipeline {
       
 	     steps {
 		     
-		     write.writing name: "Nishank", role: "DevOps", position: "Engineer"
+		     write.writing texting: "Nishank is learning groovy"
 
               }
 		     
