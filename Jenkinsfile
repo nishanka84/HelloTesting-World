@@ -23,11 +23,11 @@ pipeline {
 		     
 		     write.writing name: "Nishank", role: "DevOps", position: "Engineer"
 
-		     }
+              }
 		     
 	             
-              }
-       }
+        }
+       
 /*	    stage('Initialize') {
 	    
 		    steps {
