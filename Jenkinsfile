@@ -7,9 +7,7 @@ String testfile = ""
 
 
 pipeline {
-	agent {
-             label 'jenka'
-	}
+	agent none
 
 	
 	parameters {
@@ -19,7 +17,18 @@ pipeline {
         }
 
     stages {
-	    stage('Initialize') {
+       stage ('Test') {
+      
+	     steps {
+		     
+		     write.writing name: "Nishank", role: "DevOps", position: "Engineer"
+
+		     }
+		     
+	             
+              }
+       }
+/*	    stage('Initialize') {
 	    
 		    steps {
 			    milestone(ordinal: 1)
@@ -66,7 +75,7 @@ pipeline {
 			      }
 			)
             } 
-        } */
+        } 
        
        stage ('Test params') {
       
@@ -96,7 +105,7 @@ pipeline {
 			   expression {
 				   params.Build == true
 			   }
-		   } */
+		   } 
 	  steps {
 		  script {
 			  
@@ -125,6 +134,6 @@ pipeline {
 			    dockerRun.kube()
 		    }
 	    }
-	 }
-    }
+	 } */
+    } 
 }
